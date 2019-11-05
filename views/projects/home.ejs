@@ -5,12 +5,14 @@
     <title></title>
   </head>
   <body>
-    Welcome to the Projects Page!
+    <h1>Welcome to the Projects Page!</h1>
+    <a href="/projects/new">New Project</a>
     <% for(let i = 0; i < projects.length; i++){ %>
+      <a href="/projects/<%=projects[i].id%>">
       <div class='project-display'>
         <img src="<%=projects[i].photo%>">
         <%=projects[i].name%>
-      </div>
+      </div></a>
     <% } %>
   </body>
 </html>

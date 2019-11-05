@@ -30,6 +30,15 @@ router.get('/', (req, res) => {
   })
 }) // end of projects homepage route
 
+// project individual show page
+router.get('/:id', (req, res) => {
+  Project.findById(req.params.id, (error, foundProject) => {
+    res.render('projects/show.ejs', {
+      project: foundProject
+    })
+  })
+}) // end of show individual project site
+
 //----------------------
 // Export
 //----------------------
