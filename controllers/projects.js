@@ -52,6 +52,13 @@ router.put('/:id', (req, res) => {
     })
 }) // end of edit action route
 
+// Delete Project
+router.delete('/:id', (req, res) => {
+  Project.findByIdAndRemove(req.params.id, (error, data) => {
+    res.redirect('/projects')
+  })
+})
+
 // Individual Projects
 // project individual show page
 router.get('/:id', (req, res) => {

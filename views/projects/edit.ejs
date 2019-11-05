@@ -15,5 +15,8 @@
       Due Date (optional): <input type="text" name="due" value='<%=project.due%>' /><br>
       <input type="submit" value="Submit Changes">
     </form>
+    <form action="/projects/<%=project.id%>?_method=DELETE" method="post">
+      <input type="submit" value="DELETE">
+    </form>
   </body>
 </html>
