@@ -9,6 +9,7 @@ const Project = require('../models/project.js')
 // Routes
 //----------------------
 
+// New Projects
 // new project page show route
 router.get('/new', (req, res) => {
   res.render('projects/new.ejs')
@@ -21,6 +22,7 @@ router.post('/', (req, res) => {
   })
 }) // end of create new project post route
 
+// All Projects/ Home Page
 // projects home page route
 router.get('/', (req, res) => {
   Project.find({}, (error, allProjects) => {
@@ -30,6 +32,27 @@ router.get('/', (req, res) => {
   })
 }) // end of projects homepage route
 
+// Edit Pages
+// Show Edit Page
+router.get('/:id/edit', (req, res) => {
+  Project.findById(req.params.id, (error, foundProject) => {
+    res.render('projects/edit.ejs', {
+      project: foundProject
+    })
+  })
+}) // end of show edit project site
+
+// Edit action route
+router.put('/:id', (req, res) => {
+  Project.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true }, (error, updatedModel) => {
+      res.redirect('/projects')
+    })
+}) // end of edit action route
+
+// Individual Projects
 // project individual show page
 router.get('/:id', (req, res) => {
   Project.findById(req.params.id, (error, foundProject) => {
@@ -38,6 +61,7 @@ router.get('/:id', (req, res) => {
     })
   })
 }) // end of show individual project site
+
 
 //----------------------
 // Export
