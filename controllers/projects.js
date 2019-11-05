@@ -9,7 +9,7 @@ const Fruit = require('../models/project.js')
 // Routes
 //----------------------
 router.get('/', (req, res) => {
-  res.send('Welcome to the Projectss Page')
+  res.render('projects/home.ejs')
 })
 
 //----------------------
