@@ -6,5 +6,11 @@
   </head>
   <body>
     Welcome to the Projects Page!
+    <% for(let i = 0; i < projects.length; i++){ %>
+      <div class='project-display'>
+        <img src="<%=projects[i].photo%>">
+        <%=projects[i].name%>
+      </div>
+    <% } %>
   </body>
 </html>
