@@ -3,8 +3,10 @@
 //----------------------
 const express = require('express');
 const app = express();
-const methodOverride = require('method-override')
-const mongoose = require('mongoose')
+const methodOverride = require('method-override') //convert strings in forms
+const mongoose = require('mongoose') //for database
+const session = require('express-session') //for cookies
+
 const db = mongoose.connection
 require('dotenv').config()
 
@@ -33,6 +35,15 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 //----------------------
 // Middleware
 //----------------------
+//setting up cookies
+app.use(session({
+  //random string
+  secret:'onetwofreddyscomingforyou',
+  //dont worry about why this is false, just set it false
+  resave:false,
+  //dont worry about why this is false, just set it false
+  saveUninitialized:false
+}))
 
 //use public folder for static assets
 app.use(express.static('public'));
@@ -45,12 +56,19 @@ app.use(express.urlencoded({ extended: true }));// extended: false - does not al
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 //----------------------
+// Controllers
+//----------------------
+// Projects controller
+const patternsController = require('./controllers/projects.js');
+app.use('/projects', patternsController)
+
+//----------------------
 // Routes
 //----------------------
 
 //basic route
 app.get('/' , (req, res) => {
-  res.send('Hello World!');
+  res.send('This should be the log in / sign up page.');
 });
 
 
