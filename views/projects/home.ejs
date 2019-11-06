@@ -10,7 +10,7 @@
       <a class='new-project-button' href="/projects/new">New Project</a>
       <div class="body">
         <% for(let i = 0; i < projects.length; i++){ %>
-          <% if(projects.length === 0){ %>
+          <% if(!projects){ %>
             <div class="no-projects-yet">
               <h1>No Projects yet! Click on "New Project" to add your first project</h1>
             </div>

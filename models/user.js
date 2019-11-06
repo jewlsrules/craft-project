@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Project = require('./project.js')
 
 const userSchema = new mongoose.Schema({
   firstName:
@@ -11,6 +12,7 @@ const userSchema = new mongoose.Schema({
     { type: String, required: true },
   password:
     { type: String, required: true },
+  projects: [Project.schema]
 })
 
 //hey mongoose, set up our model!

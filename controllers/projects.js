@@ -7,7 +7,7 @@ const methodOverride = require('method-override') //convert strings in forms
 const mongoose = require('mongoose') //for database
 const session = require('express-session') //for cookies
 const bcrypt = require('bcrypt') //for password encryption
-const Project = require('../models/project.js')
+// const Project = require('../models/project.js')
 const User = require('../models/user.js')
 
 //----------------------
@@ -22,10 +22,13 @@ router.get('/new', (req, res) => {
 
 // new project create route
 router.post('/', (req, res) => {
-  req.body.user=req.session.username;
-  console.log(req.body);
-  Project.create(req.body, (error, createdProject) => {
-    res.redirect('/projects')
+  User.find({username:req.session.username}, (error, foundUser) => {
+    Project.create(req.body, (error, createdProject) => {
+      foundUser.projects.push(createdProject);
+      foundUser.save((error, data) => {
+        res.redirect('/projects')
+      })
+    })
   })
 }) // end of create new project post route
 
@@ -34,15 +37,17 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
   //check for logged in user:
   if(req.session.username){
-    Project.find({user:req.session.username}, (error, allProjects) => {
-        res.render('projects/home.ejs', {
-          projects:allProjects,
-          username:req.session.username
-        })
+    User.find({user:req.session.username}, (error, foundUser) => {
+      if(!foundUser.projects){
+        foundUser.projects = ['none']
+      }
+      res.render('projects/home.ejs', {
+        projects:foundUser.projects, //this is an array
+        username:req.session.username})
       })
-    } else {
-      res.redirect('/')
-    }
+  } else {
+    res.redirect('/')
+  }
 }) // end of projects homepage route
 
 // Edit Pages
