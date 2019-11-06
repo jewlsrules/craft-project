@@ -188,6 +188,11 @@ body {
   border-radius: 3px;
 }
 
+.logout input[type=submit]{
+  background: #540B0E;
+  color: white;
+}
+
 footer {
   border-top: 1px solid black;
   text-align: center;

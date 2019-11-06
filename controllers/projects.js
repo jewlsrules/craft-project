@@ -22,6 +22,8 @@ router.get('/new', (req, res) => {
 
 // new project create route
 router.post('/', (req, res) => {
+  req.body.user=req.session.username;
+  console.log(req.body);
   Project.create(req.body, (error, createdProject) => {
     res.redirect('/projects')
   })
@@ -32,9 +34,10 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
   //check for logged in user:
   if(req.session.username){
-    Project.find({}, (error, allProjects) => {
+    Project.find({user:req.session.username}, (error, allProjects) => {
         res.render('projects/home.ejs', {
-          projects:allProjects
+          projects:allProjects,
+          username:req.session.username
         })
       })
     } else {
@@ -58,15 +61,12 @@ router.get('/:id/edit', (req, res) => {
 
 // Edit action route
 router.put('/:id', (req, res) => {
-  //check for logged in user:
-  if(req.session.username){
     Project.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true }, (error, updatedModel) => {
         res.redirect('/projects/'+req.params.id)
       })
-  }
 }) // end of edit action route
 
 // Delete Project

@@ -12,7 +12,8 @@ const projectSchema = new mongoose.Schema({
   yarn:
     { type: String },
   due:
-    { type: String }
+    { type: String },
+  user: String
 })
 
 //hey mongoose, set up our model!
