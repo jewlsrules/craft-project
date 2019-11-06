@@ -22,16 +22,26 @@ body {
   justify-content: center;
 }
 
-.header h1 {
+.header-text {
   margin: 0;
+  padding: 1em;
   /* padding-top: 1.5em; */
   font-family: 'Heebo', sans-serif;
-  font-weight: 800;
-  font-size: 5em;
+  font-size: 2em;
   color: #FCF4F2;
   text-align: center;
   background-color: rgba(23, 34, 28, 0.2);
 }
+
+.header-text * {
+  margin: 0 auto;
+  padding: 0;
+  line-height: .97em;
+}
+
+/* .header-text p {
+  margin: 0 auto;
+} */
 
 .new-project-button {
   align-items: center;
@@ -42,10 +52,11 @@ body {
   margin-bottom: 1em;
   border: 1px solid gray;
   border-radius: 3px;
-  background: black;
-  color: white;
+  background: #A37774;
+  color: #FCF4F2;
   text-decoration: none;
   padding: .5em;
+  font-size: 1.3em;
 }
 
 .project-display {
@@ -62,4 +73,13 @@ body {
 .project-display img {
   width: 88%;
   margin-top: .5em;
+}
+
+footer {
+  border-top: 1px solid black;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
 }
