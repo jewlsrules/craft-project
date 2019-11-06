@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 
 const projectSchema = new mongoose.Schema({
@@ -17,6 +18,6 @@ const projectSchema = new mongoose.Schema({
 })
 
 //hey mongoose, set up our model!
-const Pattern = mongoose.model('Pattern', projectSchema);
+const Project = mongoose.model('Project', projectSchema);
 
-module.exports = Pattern;
+module.exports = Project;
