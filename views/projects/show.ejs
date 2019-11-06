@@ -15,9 +15,21 @@
           <div class="item-text-details col-5">
             <h1><%=project.name%>   </h1><br>
             <p>Status: <%=project.status%></p>
-            <p>Due Date: <%=project.due%></p>
-            <a class='link' href="<%=project.pattern%>">Pattern Link</a>
-            <a class='link' href="<%=project.yarn%>">Yarn Link</a><br>
+            <%if(!project.due){%>
+              <p>No Due Date</p>
+            <% } else {%>
+              <p>Due Date: <%=project.due%></p>
+            <% } %>
+            <% if(!project.pattern){ %>
+              <p>No Pattern Linked</p>
+            <% } else { %>
+              <a class='link' href="<%=project.pattern%>">Pattern Link</a>
+            <% } %>
+            <% if(!project.yarn){ %>
+              <p>No Yarn Linked</p>
+            <% } else { %>
+              <a class='link' href="<%=project.yarn%>">Yarn Link</a><br>
+            <% } %>
             <a class='link' href="/projects/<%=project.id%>/edit">Edit Project</a>
           </div>
         </div>

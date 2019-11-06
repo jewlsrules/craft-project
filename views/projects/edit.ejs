@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+<% include ../partials/htmlhead.ejs %>
   </head>
   <body>
-    <h1>Edit Project</h1>
-    <form action="/projects/<%=project.id%>?_method=PUT" method="post">
-      Name: <input type="text" name="name" value='<%=project.name%>' /><br>
-      Image URL: <input type="text" name="photo" value='<%=project.photo%>' /><br>
-      Status: <input type="text" name="status" value='<%=project.status%>' placeholder="to do, current, done"/><br>
-      Link to Pattern: <input type="text" name="pattern" value='<%=project.pattern%>' /><br>
-      Link to Yarn: <input type="text" name="yarn" value='<%=project.yarn%>' /><br>
-      Due Date (optional): <input type="text" name="due" value='<%=project.due%>' /><br>
-      <input type="submit" value="Submit Changes">
-    </form>
-    <a href="/projects/<%=project.id%>">Back to Project</a>
-    <form action="/projects/<%=project.id%>?_method=DELETE" method="post">
-      <input type="submit" value="DELETE">
-    </form>
+    <% include ../partials/header2.ejs %>
+    <div class="edit-body">
+      <h1>Edit Project</h1>
+      <form class='edit-item-form' action="/projects/<%=project.id%>?_method=PUT" method="post">
+        Name: <input type="text" name="name" value='<%=project.name%>' /><br>
+        Image URL: <input type="text" name="photo" value='<%=project.photo%>' /><br>
+        Status: <input type="text" name="status" value='<%=project.status%>' placeholder="to do, current, done"/><br>
+        Link to Pattern: <input type="text" name="pattern" value='<%=project.pattern%>' /><br>
+        Link to Yarn: <input type="text" name="yarn" value='<%=project.yarn%>' /><br>
+        Due Date (optional): <input type="text" name="due" value='<%=project.due%>' /><br>
+        <input type="submit" value="Submit Changes">
+      </form>
+      <a class='link' href="/projects/<%=project.id%>">< Back to Project</a>
+      <form action="/projects/<%=project.id%>?_method=DELETE" method="post">
+        <input id='delete-project-button' type="submit" value="DELETE PROJECT">
+      </form>
+    </div>
     <% include ../partials/footer.ejs %>
   </body>
 </html>

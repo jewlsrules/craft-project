@@ -48,7 +48,7 @@ router.put('/:id', (req, res) => {
     req.params.id,
     req.body,
     { new: true }, (error, updatedModel) => {
-      res.redirect('/projects')
+      res.redirect('/projects/'+req.params.id)
     })
 }) // end of edit action route
 
