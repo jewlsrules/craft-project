@@ -68,7 +68,7 @@ app.use('/projects', patternsController)
 
 //basic route
 app.get('/' , (req, res) => {
-  res.send('This should be the log in / sign up page.');
+  res.render('welcome.ejs');
 });
 
 

@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
-      <link rel="stylesheet" href="/css/app.css">
+    <% include ../partials/htmlhead.ejs %>
   </head>
   <body>
-    <h1>Welcome to the Projects Page!</h1>
-    <a href="/projects/new">New Project</a>
-    <% for(let i = 0; i < projects.length; i++){ %>
-      <a href="/projects/<%=projects[i].id%>">
-      <div class='project-display'>
-        <img src="<%=projects[i].photo%>">
-        <%=projects[i].name%>
-      </div></a>
-    <% } %>
+    <div class="container">
+    <% include ../partials/header.ejs %>
+      <a class='new-project-button' href="/projects/new">New Project</a>
+      <% for(let i = 0; i < projects.length; i++){ %>
+        <div class='project-display'>
+          <a href="/projects/<%=projects[i].id%>">
+          <img src="<%=projects[i].photo%>">
+          <%=projects[i].name%>
+        </a></div>
+      <% } %>
+    </div>
     <% include ../partials/footer.ejs %>
   </body>
 </html>

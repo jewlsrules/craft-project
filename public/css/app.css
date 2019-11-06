@@ -1,3 +1,65 @@
 body {
-  background: red;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.header {
+  width: 100%;
+  background-image: url('https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header h1 {
+  margin: 0;
+  /* padding-top: 1.5em; */
+  font-family: 'Heebo', sans-serif;
+  font-weight: 800;
+  font-size: 5em;
+  color: #FCF4F2;
+  text-align: center;
+  background-color: rgba(23, 34, 28, 0.2);
+}
+
+.new-project-button {
+  align-items: center;
+  text-align: center;
+  margin-right: 40%;
+  margin-left: 40%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 1px solid gray;
+  border-radius: 3px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  padding: .5em;
+}
+
+.project-display {
+  width: 30%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.project-display img {
+  width: 88%;
+  margin-top: .5em;
 }
