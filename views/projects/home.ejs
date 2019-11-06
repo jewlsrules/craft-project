@@ -4,17 +4,25 @@
     <% include ../partials/htmlhead.ejs %>
   </head>
   <body>
-    <div class="container">
-    <% include ../partials/header.ejs %>
+    <div class="page">
+    <% include ../partials/header1.ejs %>
       <a class='new-project-button' href="/projects/new">New Project</a>
-      <% for(let i = 0; i < projects.length; i++){ %>
-        <div class='project-display'>
-          <a href="/projects/<%=projects[i].id%>">
-          <img src="<%=projects[i].photo%>">
-          <%=projects[i].name%>
-        </a></div>
-      <% } %>
-    </div>
+      <div class="body">
+        <% for(let i = 0; i < projects.length; i++){ %>
+          <% if(projects.length === 0){ %>
+            <div class="no-projects-yet">
+              <h1>No Projects yet! Click on "New Project" to add your first project</h1>
+            </div>
+          <% } else { %>
+          <div class='project-display'>
+              <a href="/projects/<%=projects[i].id%>">
+                <img src="<%=projects[i].photo%>">
+              </a>
+              <p class='item-name-index'><%=projects[i].name%></p>
+            </div>
+            <% }} %>
+          </div>
+        </div>
     <% include ../partials/footer.ejs %>
   </body>
 </html>

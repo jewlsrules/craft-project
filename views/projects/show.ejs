@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+<% include ../partials/htmlhead.ejs %>
   </head>
   <body>
-    <h1>Individual Project View Site</h1>
-    <img src="<%=project.photo%>">
-    <a href="/projects/<%=project.id%>/edit">Edit Project</a>
-    <a href="/projects">Back to All Projects</a>
+    <div class="page">
+    <% include ../partials/header2.ejs %>
+      <div class="show-body">
+        <a class='link' href="/projects">< Back to All Projects</a><br>
+        <div class="show-item-details">
+          <div class="item-show-photo col-6">
+            <img class='item-photo-show' src="<%=project.photo%>">
+          </div>
+          <div class="item-text-details col-5">
+            <h1><%=project.name%>   </h1><br>
+            <p>Status: <%=project.status%></p>
+            <p>Due Date: <%=project.due%></p>
+            <a class='link' href="<%=project.pattern%>">Pattern Link</a>
+            <a class='link' href="<%=project.yarn%>">Yarn Link</a><br>
+            <a class='link' href="/projects/<%=project.id%>/edit">Edit Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <% include ../partials/footer.ejs %>
   </body>
 </html>
