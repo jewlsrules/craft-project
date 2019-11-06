@@ -66,13 +66,13 @@ body {
 }
 
 .new-project-button {
+  width: 200px;
   align-items: center;
   text-align: center;
   margin-right: 40%;
   margin-left: 40%;
   margin-top: 1em;
   margin-bottom: 1em;
-  border: 1px solid gray;
   border-radius: 3px;
   background: #E09F3E;
   color: #FFFCF0;
@@ -85,20 +85,28 @@ body {
   text-decoration: none;
   color: #E09F3E;
   background-color: #FFFCF0;
+  box-shadow: 1px 1px #888888;
 }
 
 .project-display {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border: 1px solid #484A47;
   padding: 1em;
   width: 28%;
+  max-height: 500px;
 }
 
 .project-display img {
   width: 100%;
+}
+
+.project-display p {
+  font-family: 'Heebo', sans-serif;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 .show-body {
