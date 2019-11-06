@@ -16,10 +16,14 @@ const User = require('../models/user.js')
 
 // Show Log In Page
 router.get('/login', (req, res) => {
-  res.render('sessions/login.ejs')
+  if(!req.session.username){
+    res.render('sessions/login.ejs')
+  } else {
+    res.redirect('/projects')
+  }
 })
 
-// Log In check route
+// Log In route
 router.post('/', (req, res)=>{
   User.findOne({username: req.body.username}, (error, foundUser) => {
     if(foundUser === null){
@@ -36,6 +40,20 @@ router.post('/', (req, res)=>{
     }
   })
 }) // end of log in check route
+
+//session delete (log out)
+router.post('/destroy', (req, res)=>{ //any route will work
+	req.session.destroy((err)=>{
+		if(err){
+			//do something if destroying the session fails
+      console.log(err);
+		} else {
+      //do something if destroying the session succeeds
+      res.redirect('/')
+		}
+	});
+});
+//end of log out
 
 //----------------------
 // Export

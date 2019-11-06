@@ -6,6 +6,9 @@
   <body>
     <div class="page">
     <% include ../partials/header1.ejs %>
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" value="Log Out">
+    </form>
       <a class='new-project-button' href="/projects/new">New Project</a>
       <div class="body">
         <% for(let i = 0; i < projects.length; i++){ %>
