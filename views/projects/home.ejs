@@ -20,13 +20,14 @@
                 <img src="<%=projects[i].photo%>">
               </a>
               <a class='link' href="/projects/<%=projects[i].id%>"><%=projects[i].name%></a>
-              <p>user ID: <%=projects[i].user%></p>
             </div>
             <% }} %>
           </div>
-          <form class='logout' action="/sessions/destroy" method="post">
-            <input type="submit" value="Log Out">
-          </form>
+          <div class="pre-footer"
+            <form class='logout' action="/sessions/destroy" method="post">
+              <input type="submit" value="Log Out">
+            </form>
+          </div>
         </div>
     <% include ../partials/footer.ejs %>
   </body>

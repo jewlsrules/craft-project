@@ -29,14 +29,23 @@ router.post('/', (req, res) => {
   })
 }) // end of create new project post route
 
-// All Projects/ Home Page
+//Show All Projects home page - show's all projects from users across the platform
+router.get('/all', (req, res) => {
+  Project.find({}, (error, allProjects) => {
+    res.render('projects/index.ejs', {
+      projects:allProjects
+    })
+  })
+})
+
+// User Home Page
 // projects home page route
 router.get('/', (req, res) => {
   //check for logged in user:
   if(req.session.username){
-    Project.find({user:req.session.username}, (error, allProjects) => {
+    Project.find({user:req.session.username}, (error, usersProjects) => {
         res.render('projects/home.ejs', {
-          projects:allProjects,
+          projects:usersProjects,
           username:req.session.username
         })
       })

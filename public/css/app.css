@@ -63,6 +63,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   padding-bottom: 2em;
+  width: 100%;
 }
 
 .new-project-button {
@@ -95,12 +96,13 @@ body {
   align-items: center;
   border: 1px solid #484A47;
   padding: 1em;
-  width: 28%;
+  width: 30%;
   max-height: 500px;
 }
 
 .project-display img {
   width: 100%;
+  max-height: inherit;
 }
 
 .project-display p {
@@ -188,9 +190,21 @@ body {
   border-radius: 3px;
 }
 
-.logout input[type=submit]{
+.pre-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+}
+
+.pre-footer input[type=submit]{
   background: #540B0E;
   color: white;
+}
+
+.pre-footer input[type=submit]:hover{
+  background: white;
+  color: #540B0E;
 }
 
 footer {

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% include ../partials/htmlhead.ejs %>
+  </head>
+  <body>
+    <% include ../partials/header1.ejs %>
+    <a class='new-project-button' href="/projects/new">New Project</a>
+    <div class="body">
+      <% for(let i = 0; i < projects.length; i++){ %>
+        <div class='project-display'>
+              <img src="<%=projects[i].photo%>">
+          </div>
+          <% } %>
+        </div>
+    <% include ../partials/footer.ejs %>
+  </body>
+</html>
