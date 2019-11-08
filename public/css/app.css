@@ -231,6 +231,36 @@ body {
   text-align: center;
 }
 
+/* PROFILE PAGE */
+.user-info {
+  width: 100%;
+}
+
+.user-info * {
+  text-align: center;
+}
+
+.users-projects {
+  width: 80%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 2em;
+}
+
+.users-projects h1 {
+  width: 100%;
+}
+
+.show-projects {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .pre-footer {
   margin-top: 1em;
   width: 100%;

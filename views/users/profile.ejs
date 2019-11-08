@@ -30,7 +30,9 @@
     <!-- End of nav bar -->
     <div class="body">
       <div class="user-info">
-        <h1><%=user.username%></h1>
+        <h1><%=user.username%></h1><br>
+        <p>Name: <%=user.firstName%> <%=user.lastName%></p><br>
+        <p>Email: <%=user.email%></p>
         <div class="pre-footer">
           <form class='logout' action="/sessions/destroy" method="post">
             <input type="submit" value="Log Out">
@@ -39,19 +41,21 @@
       </div>
       <div class="users-projects">
         <h1>Projects</h1>
-        <% for(let i = 0; i<projects.length; i++){ %>
-          <% if(!projects){ %>
-            <div class="no-projects-yet">
-              <h1>No Projects yet! Click on "New Project" to add your first project</h1>
-            </div>
-          <% } else { %>
-          <div class='project-display'>
-              <a href="/projects/<%=projects[i].id%>">
-                <img src="<%=projects[i].photo%>">
-              </a>
-              <a class='link' href="/projects/<%=projects[i].id%>"><%=projects[i].name%></a>
-            </div>
-            <% }} %>
+        <div class="show-projects">
+          <% for(let i = 0; i<projects.length; i++){ %>
+            <% if(!projects){ %>
+              <div class="no-projects-yet">
+                <h1>No Projects yet! Click on "New Project" to add your first project</h1>
+              </div>
+            <% } else { %>
+            <div class='project-display'>
+                <a href="/projects/<%=projects[i].id%>">
+                  <img src="<%=projects[i].photo%>">
+                </a>
+                <a class='link' href="/projects/<%=projects[i].id%>"><%=projects[i].name%></a>
+              </div>
+              <% }} %>
+        </div>
       </div>
     </div>
     <% include ../partials/footer.ejs %>
