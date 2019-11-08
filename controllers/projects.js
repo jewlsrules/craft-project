@@ -17,7 +17,11 @@ const User = require('../models/user.js')
 // New Projects
 // new project page show route
 router.get('/new', (req, res) => {
-  res.render('projects/new.ejs')
+  if(req.session.username){
+    res.render('projects/new.ejs')
+  } else {
+    res.redirect('/projects/all')
+  }
 }) // end of new project show route
 
 // new project create route
@@ -33,15 +37,12 @@ router.post('/', (req, res) => {
 
 //Show All Projects home page - show's all projects from users across the platform
 router.get('/all', (req, res) => {
-  if(req.session.username){ //make sure the user is logged in
     Project.find({}, (error, allProjects) => { // look in the database and find all of the projects
       res.render('projects/index.ejs', { // show the all projects page
-        projects:allProjects // variable 'project' represents all of the projects ever.
+        projects:allProjects, // variable 'project' represents all of the projects ever.
+        user: req.session.username
       })
     })
-  } else { //if the user is not logged in then send them to the log in/sign up page
-    res.redirect('/')
-  }
 })
 
 // User Home Page
@@ -56,7 +57,7 @@ router.get('/', (req, res) => {
         })
       })
     } else { //if the user isn't logged in, make them log in or sign up
-      res.redirect('/')
+      res.redirect('/projects/all')
     }
 }) // end of projects homepage route
 
@@ -70,7 +71,7 @@ router.get('/:id/edit', (req, res) => {
       })
     })
   } else { //if the user isn't signed in bring them to the sign up/log in page
-    res.redirect('/')
+    res.redirect('/projects/all')
   }
 }) // end of show edit project site
 
@@ -102,7 +103,7 @@ router.get('/:id', (req, res) => {
       })
     })
   } else {
-    res.redirect('/')
+    res.redirect('/projects/all')
   }
 }) // end of show individual project site
 

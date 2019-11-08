@@ -50,7 +50,7 @@ router.post('/destroy', (req, res)=>{ //any route will work
       console.log(err);
 		} else {
       //do something if destroying the session succeeds
-      res.redirect('/')
+      res.redirect('/projects/all')
 		}
 	});
 });

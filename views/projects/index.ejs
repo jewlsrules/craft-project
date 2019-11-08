@@ -29,6 +29,19 @@
     </nav>
     <!-- End of Nav Bar -->
     <% include ../partials/header1.ejs %>
+    <%if(!user){ %>
+      <div class='jumbotron bgred'>
+        <h1 class="display-4">Welcome!</h1>
+        <p class="lead">Hook & Needle is an online community for knitters and crocheters where you can track your projects, create inspiration boards, and see what other makers are up to.</p>
+        <hr class="my-4">
+        <p>Log in or sign up to start tracking your projects</p>
+        <div class="jumbo-buttons">
+          <a class='login-button' href="/sessions/login">Log In</a><br>
+          <a class='login-button' href="/users/signup">Sign Up</a>
+        </div>
+      </div>
+
+    <% } %>
     <h1 class='header1'>Browse Projects</h1>
     <div class="body">
       <% for(let i = 0; i < projects.length; i++){ %>

@@ -57,6 +57,34 @@ body {
   text-shadow: 0 0 5px #484A47;
 }
 
+.bgred {
+  background-color: #456A74;
+  color: #FFFCF0
+}
+
+.jumbo-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+}
+
+.login-button {
+  width: 200px;
+  align-items: center;
+  text-align: center;
+  /* margin-right: 40%;
+  margin-left: 40%;
+  margin-top: 1em;
+  margin-bottom: 1em; */
+  border-radius: 3px;
+  background: #E09F3E;
+  color: #FFFCF0;
+  text-decoration: none;
+  padding: .5em;
+  font-size: 1.3em;
+}
+
 .body {
   display: flex;
   flex-direction: row;
