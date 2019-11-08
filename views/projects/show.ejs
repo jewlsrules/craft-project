@@ -30,8 +30,10 @@
     <!-- End of nav bar -->
     <div class="page">
       <div class="show-body">
-        <div class="project-display">
+        <div class="show-item-details">
+          <div class="item-show-photo col-6">
             <img class='item-photo-show' src="<%=project.photo%>">
+          </div>
           <div class="item-text-details col-5">
             <h1><%=project.name%>   </h1><br>
             <% if(user !== project.user){ %>
