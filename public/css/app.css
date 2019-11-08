@@ -73,16 +73,19 @@ body {
   width: 200px;
   align-items: center;
   text-align: center;
-  /* margin-right: 40%;
-  margin-left: 40%;
-  margin-top: 1em;
-  margin-bottom: 1em; */
   border-radius: 3px;
   background: #E09F3E;
   color: #FFFCF0;
   text-decoration: none;
   padding: .5em;
   font-size: 1.3em;
+}
+
+.login-button:hover {
+  text-decoration: none;
+  color: #E09F3E;
+  background-color: #FFFCF0;
+  box-shadow: 1px 1px #888888;
 }
 
 .body {

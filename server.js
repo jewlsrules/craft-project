@@ -77,11 +77,7 @@ app.use('/users', usersController)
 
 //basic route
 app.get('/' , (req, res) => {
-  if(!req.session.username){
-    res.render('welcome.ejs');
-  } else {
-    res.redirect('/projects')
-  }
+  res.redirect('/projects/all')
 });
 
 

@@ -95,16 +95,12 @@ router.delete('/:id', (req, res) => {
 // Individual Projects
 // project individual show page
 router.get('/:id', (req, res) => {
-  if(req.session.username){ //make sure the user is signed in
     Project.findById(req.params.id, (error, foundProject) => {
       res.render('projects/show.ejs', {
         project: foundProject,
         user: req.session.username
       })
     })
-  } else {
-    res.redirect('/projects/all')
-  }
 }) // end of show individual project site
 
 
