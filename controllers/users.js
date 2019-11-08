@@ -26,6 +26,20 @@ router.post('/', (req, res) => {
   })
 })
 
+router.get('/:id', (req, res) => {
+  if(req.session.username){
+    User.findOne({username: req.session.username}, (error, foundUser) => {
+      // console.log('req.session.username = ' + req.session.username);
+      // console.log('found user is: ' + foundUser);
+      res.render('users/profile.ejs', {
+        user:foundUser
+      })
+    })
+  } else {
+    res.redirect('/')
+  }
+})
+
 //----------------------
 // Export
 //----------------------

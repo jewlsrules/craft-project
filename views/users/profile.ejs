@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-<% include ../partials/htmlhead.ejs %>
+    <% include ../partials/htmlhead.ejs %>
   </head>
   <body>
     <!-- Nav bar changes based on current page, can't use partial -->
@@ -18,11 +18,11 @@
           <li class="nav-item">
             <a class="nav-link" href="/projects/all">Browse</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/projects/new">New Project<span class="sr-only">(current)</span></a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Profile - DOESNT WORK</a>
+            <a class="nav-link" href="/projects/new">New Project</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Profile<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Log Out - DOESNT WORK</a>
@@ -31,18 +31,8 @@
       </div>
     </nav>
     <!-- End of nav bar -->
-    <div class="edit-body">
-      <h1>New Project</h1>
-      <form class='edit-item-form' action="/projects" method="post">
-        Name: <input type="text" name="name" /><br>
-        Image URL: <input type="text" name="photo" /><br>
-        Status: <input type="text" name="status" placeholder="to do, current, done"/><br>
-        Link to Pattern: <input type="text" name="pattern" /><br>
-        Link to Yarn: <input type="text" name="yarn" /><br>
-        Due Date (optional): <input type="text" name="due" /><br>
-        <input type="submit" value="Submit New Item">
-      </form>
-      <a class='link' href="/projects">< Back to Home</a>
+    <div class="body">
+      <h1><%=user.username%></h1>
     </div>
     <% include ../partials/footer.ejs %>
   </body>

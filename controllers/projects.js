@@ -22,7 +22,6 @@ router.get('/new', (req, res) => {
 
 // new project create route
 router.post('/', (req, res) => {
-  req.body.user=req.session.username;
   console.log(req.body);
   Project.create(req.body, (error, createdProject) => {
     res.redirect('/projects')
@@ -31,11 +30,15 @@ router.post('/', (req, res) => {
 
 //Show All Projects home page - show's all projects from users across the platform
 router.get('/all', (req, res) => {
-  Project.find({}, (error, allProjects) => {
-    res.render('projects/index.ejs', {
-      projects:allProjects
+  if(req.session.username){
+    Project.find({}, (error, allProjects) => {
+      res.render('projects/index.ejs', {
+        projects:allProjects
+      })
     })
-  })
+  } else {
+    res.redirect('/')
+  }
 })
 
 // User Home Page

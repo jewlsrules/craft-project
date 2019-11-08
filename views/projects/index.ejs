@@ -4,12 +4,39 @@
     <% include ../partials/htmlhead.ejs %>
   </head>
   <body>
+    <!-- Nav Bar changes based on the active page, so we can't use a partial -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top redbg">
+      <a class="navbar-brand" href="#">Hook & Needle</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/projects">Your Projects</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/projects/all">Browse<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/projects/new">New Project</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile - DOESNT WORK</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Log Out - DOESNT WORK</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End of Nav Bar -->
     <% include ../partials/header1.ejs %>
     <h1 class='header1'>Browse All Users' Projects</h1>
     <div class="body">
       <% for(let i = 0; i < projects.length; i++){ %>
         <div class='project-display'>
-          <a href="/<%=projects[i].id%>"></a>
+          <a href="/projects/<%=projects[i].id%>">
               <img src="<%=projects[i].photo%>">
             </a>
           </div>
