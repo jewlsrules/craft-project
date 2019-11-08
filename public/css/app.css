@@ -191,7 +191,12 @@ body {
   border-radius: 3px;
 }
 
+.header1 {
+  text-align: center;
+}
+
 .pre-footer {
+  margin-top: 1em;
   width: 100%;
   display: flex;
   flex-direction: row;

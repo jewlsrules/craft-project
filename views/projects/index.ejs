@@ -5,13 +5,20 @@
   </head>
   <body>
     <% include ../partials/header1.ejs %>
-    <a class='new-project-button' href="/projects/new">New Project</a>
+    <h1 class='header1'>Browse All Users' Projects</h1>
     <div class="body">
       <% for(let i = 0; i < projects.length; i++){ %>
         <div class='project-display'>
+          <a href="/<%=projects[i].id%>"></a>
               <img src="<%=projects[i].photo%>">
+            </a>
           </div>
           <% } %>
+          <div class="pre-footer"
+            <form class='logout' action="/sessions/destroy" method="post">
+              <input type="submit" value="Log Out">
+            </form>
+          </div>
         </div>
     <% include ../partials/footer.ejs %>
   </body>
