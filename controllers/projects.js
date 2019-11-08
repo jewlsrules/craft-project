@@ -24,6 +24,7 @@ router.get('/new', (req, res) => {
 router.post('/', (req, res) => {
   // console.log(req.body);
   // create a new project based on the schema
+  req.body.user = req.session.username;
   Project.create(req.body, (error, createdProject) => {
     //go back to the user's projects page
     res.redirect('/projects')
@@ -96,7 +97,8 @@ router.get('/:id', (req, res) => {
   if(req.session.username){ //make sure the user is signed in
     Project.findById(req.params.id, (error, foundProject) => {
       res.render('projects/show.ejs', {
-        project: foundProject
+        project: foundProject,
+        user: req.session.username
       })
     })
   } else {

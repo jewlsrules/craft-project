@@ -36,6 +36,9 @@
           </div>
           <div class="item-text-details col-5">
             <h1><%=project.name%>   </h1><br>
+            <% if(user !== project.user){ %>
+                <p><%=project.user%>'s Project</p>
+            <% } %>
             <p>Status: <%=project.status%></p>
             <%if(!project.due){%>
               <p>No Due Date</p>
@@ -52,7 +55,9 @@
             <% } else { %>
               <a class='link' href="<%=project.yarn%>">Yarn Link</a><br>
             <% } %>
-            <a class='link' href="/projects/<%=project.id%>/edit">Edit Project</a>
+            <% if(user === project.user){ %>
+                <a class='link' href="/projects/<%=project.id%>/edit">Edit Project</a>
+            <% } %>
           </div>
         </div>
       </div>
