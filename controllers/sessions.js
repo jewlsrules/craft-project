@@ -21,7 +21,7 @@ router.get('/login', (req, res) => {
   } else {
     res.redirect('/projects')
   }
-})
+}) // end of show log in page
 
 // Log In route
 router.post('/', (req, res)=>{
@@ -32,7 +32,7 @@ router.post('/', (req, res)=>{
       const doesPasswordMatch = bcrypt.compareSync(req.body.password, foundUser.password)
       if(doesPasswordMatch){
         //if the password is correct, set a cookie of their username
-        console.log("this is the log in post route, found user is : "+ foundUser);
+        // console.log("this is the log in post route, found user is : "+ foundUser);
         req.session.username = foundUser.username
         res.redirect('/projects')
       } else {

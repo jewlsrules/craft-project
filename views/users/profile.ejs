@@ -33,6 +33,19 @@
     <!-- End of nav bar -->
     <div class="body">
       <h1><%=user.username%></h1>
+      <% for(let i = 0; i<projects.length; i++){ %>
+        <% if(!projects){ %>
+          <div class="no-projects-yet">
+            <h1>No Projects yet! Click on "New Project" to add your first project</h1>
+          </div>
+        <% } else { %>
+        <div class='project-display'>
+            <a href="/projects/<%=projects[i].id%>">
+              <img src="<%=projects[i].photo%>">
+            </a>
+            <a class='link' href="/projects/<%=projects[i].id%>"><%=projects[i].name%></a>
+          </div>
+          <% }} %>
     </div>
     <% include ../partials/footer.ejs %>
   </body>

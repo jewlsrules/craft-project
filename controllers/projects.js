@@ -22,21 +22,23 @@ router.get('/new', (req, res) => {
 
 // new project create route
 router.post('/', (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
+  // create a new project based on the schema
   Project.create(req.body, (error, createdProject) => {
+    //go back to the user's projects page
     res.redirect('/projects')
   })
 }) // end of create new project post route
 
 //Show All Projects home page - show's all projects from users across the platform
 router.get('/all', (req, res) => {
-  if(req.session.username){
-    Project.find({}, (error, allProjects) => {
-      res.render('projects/index.ejs', {
-        projects:allProjects
+  if(req.session.username){ //make sure the user is logged in
+    Project.find({}, (error, allProjects) => { // look in the database and find all of the projects
+      res.render('projects/index.ejs', { // show the all projects page
+        projects:allProjects // variable 'project' represents all of the projects ever.
       })
     })
-  } else {
+  } else { //if the user is not logged in then send them to the log in/sign up page
     res.redirect('/')
   }
 })
@@ -44,15 +46,15 @@ router.get('/all', (req, res) => {
 // User Home Page
 // projects home page route
 router.get('/', (req, res) => {
-  //check for logged in user:
-  if(req.session.username){
+  if(req.session.username){  //check for logged in user:
+    // based on the cookie that was set at log in/sign up, find all the projects
     Project.find({user:req.session.username}, (error, usersProjects) => {
-        res.render('projects/home.ejs', {
+        res.render('projects/home.ejs', { //this page will show all the current user's projects
           projects:usersProjects,
           username:req.session.username
         })
       })
-    } else {
+    } else { //if the user isn't logged in, make them log in or sign up
       res.redirect('/')
     }
 }) // end of projects homepage route
@@ -60,18 +62,18 @@ router.get('/', (req, res) => {
 // Edit Pages
 // Show Edit Page
 router.get('/:id/edit', (req, res) => {
-  if(req.session.username){
-    Project.findById(req.params.id, (error, foundProject) => {
+  if(req.session.username){ //make sure the user is signed in based on the cookie
+    Project.findById(req.params.id, (error, foundProject) => { // find the project and render the edit page
       res.render('projects/edit.ejs', {
         project: foundProject
       })
     })
-  } else {
+  } else { //if the user isn't signed in bring them to the sign up/log in page
     res.redirect('/')
   }
 }) // end of show edit project site
 
-// Edit action route
+// Edit a project action route
 router.put('/:id', (req, res) => {
     Project.findByIdAndUpdate(
       req.params.id,
@@ -91,7 +93,7 @@ router.delete('/:id', (req, res) => {
 // Individual Projects
 // project individual show page
 router.get('/:id', (req, res) => {
-  if(req.session.username){
+  if(req.session.username){ //make sure the user is signed in
     Project.findById(req.params.id, (error, foundProject) => {
       res.render('projects/show.ejs', {
         project: foundProject
