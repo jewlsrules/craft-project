@@ -129,6 +129,7 @@ body {
   padding: 1em;
   width: 30%;
   max-height: 500px;
+  min-width: 300px;
 }
 
 .project-display img {

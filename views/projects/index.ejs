@@ -29,6 +29,7 @@
     </nav>
     <!-- End of Nav Bar -->
     <% include ../partials/header1.ejs %>
+    <!-- If a user isn't signed in, show them the jumbotron -->
     <%if(!user){ %>
       <div class='jumbotron bgred'>
         <h1 class="display-4">Welcome!</h1>
@@ -40,8 +41,8 @@
           <a class='login-button' href="/users/signup">Sign Up</a>
         </div>
       </div>
-
     <% } %>
+    <!-- end of jumbotron -->
     <h1 class='header1'>Browse Projects</h1>
     <div class="body">
       <% for(let i = 0; i < projects.length; i++){ %>
