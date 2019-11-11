@@ -61,6 +61,10 @@ router.put('/:id', (req, res) => {
       })
 }) // end of edit action route
 
+//homepage
+router.get('/', (req, res) => {
+  res.redirect('/projects/all')
+})
 
 //show user's page
 router.get('/:id', (req, res) => {
