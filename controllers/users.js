@@ -35,10 +35,10 @@ router.get('/:id', (req, res) => {
   //check if the user is loggedin first
   if(req.session.username){
     //find the user and display their information
-    User.findOne({username: req.session.username}, (error, foundUser) => {
+    User.findOne({username: req.params.id}, (error, foundUser) => {
       // console.log('req.session.username = ' + req.session.username);
       // console.log('found user\'s username is: ' + foundUser);
-      Project.find({user:req.session.username}, (error, foundProjects) => {
+      Project.find({user: req.params.id}, (error, foundProjects) => {
         //to see and edit their own profile
         if(req.session.username === foundUser.username){
           res.render('users/profile.ejs', {
@@ -57,7 +57,7 @@ router.get('/:id', (req, res) => {
   } else {
     res.redirect('/')
   }
-})
+})//end of user's show page
 
 //----------------------
 // Export
