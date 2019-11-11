@@ -30,7 +30,7 @@
     <!-- End of nav bar -->
     <div class="body">
       <div class="user-info">
-        <h1><%=user.username%></h1><br>
+        <h1 class='page-heading-text'><%=user.username%></h1><br>
         <p>Name: <%=user.firstName%> <%=user.lastName%></p><br>
         <p>Email: <%=user.email%></p>
         <div class="pre-footer">
@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="users-projects">
-        <h1>Projects</h1>
+        <h1 class='page-heading-text'>Projects</h1>
         <div class="show-projects">
           <% for(let i = 0; i<projects.length; i++){ %>
             <% if(!projects){ %>
@@ -48,7 +48,7 @@
                 <h1>No Projects yet! Click on "New Project" to add your first project</h1>
               </div>
             <% } else { %>
-            <div class='project-display'>
+            <div class='project-display shadow p-3 mb-5 bg-white rounded'>
                 <a href="/projects/<%=projects[i].id%>">
                   <img src="<%=projects[i].photo%>">
                 </a>

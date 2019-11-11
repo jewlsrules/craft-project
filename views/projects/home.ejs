@@ -30,7 +30,7 @@
     <!-- End of nav bar -->
     <div class="page">
     <% include ../partials/header1.ejs %>
-      <h1 class='heading1'>Your Projects</h1>
+      <h1 class='page-heading-text'>Your Projects</h1>
       <div class="body">
         <% for(let i = 0; i < projects.length; i++){ %>
           <% if(!projects){ %>
@@ -38,7 +38,7 @@
               <h1>No Projects yet! Click on "New Project" to add your first project</h1>
             </div>
           <% } else { %>
-          <div class='project-display'>
+          <div class='project-display shadow p-3 mb-5 bg-white rounded'>
               <a href="/projects/<%=projects[i].id%>">
                 <img src="<%=projects[i].photo%>">
               </a>
