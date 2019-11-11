@@ -28,36 +28,15 @@
       </div>
     </nav>
     <!-- End of nav bar -->
-    <div class="body">
-      <div class="user-info">
-        <h1 class='page-heading-text'><%=user.username%></h1><br>
-        <p>Name: <%=user.firstName%> <%=user.lastName%></p><br>
-        <p>Email: <%=user.email%></p>
-        <div class="pre-footer">
-          <a class='link' href="/users/<%=user.username%>/edit">Edit Profile</a><br>
-          <form class='logout' action="/sessions/destroy" method="post">
-            <input type="submit" value="Log Out">
-          </form>
-        </div>
-      </div>
-      <div class="users-projects">
-        <h1 class='page-heading-text'>Projects</h1>
-        <div class="show-projects">
-          <% for(let i = 0; i<projects.length; i++){ %>
-            <% if(!projects){ %>
-              <div class="no-projects-yet">
-                <h1>No Projects yet! Click on "New Project" to add your first project</h1>
-              </div>
-            <% } else { %>
-            <div class='project-display'>
-                <a href="/projects/<%=projects[i].id%>">
-                  <img src="<%=projects[i].photo%>">
-                </a>
-                <a class='link' href="/projects/<%=projects[i].id%>"><%=projects[i].name%></a>
-              </div>
-              <% }} %>
-        </div>
-      </div>
+    <div class="edit-body">
+      <a class='link' href="/users/<%=user.username%>">< Back to Profile</a>
+      <h1 class='page-heading-text'>Edit Profile</h1>
+      <form class='edit-item-form' action="/users/<%=user.username%>?_method=PUT" method="post">
+        First Name: <input type="text" name="firstName" value='<%=user.firstName%>' /><br>
+        Last Name: <input type="text" name="lastName" value='<%=user.lastName%>' /><br>
+        Email: <input type="text" name="email" value='<%=user.email%>' /><br>
+        <input type="submit" value="Submit Changes">
+      </form>
     </div>
     <% include ../partials/footer.ejs %>
   </body>

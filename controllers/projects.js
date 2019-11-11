@@ -77,6 +77,7 @@ router.get('/:id/edit', (req, res) => {
 
 // Edit a project action route
 router.put('/:id', (req, res) => {
+  // console.log(req.body);
     Project.findByIdAndUpdate(
       req.params.id,
       req.body,
