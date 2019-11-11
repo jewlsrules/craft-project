@@ -121,11 +121,13 @@ body {
 }
 
 .project-display {
+  margin-bottom: 2em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   border: 1px solid #484A47;
+  border-radius: 5px;
   padding: 1em;
   width: 30%;
   max-height: 500px;
