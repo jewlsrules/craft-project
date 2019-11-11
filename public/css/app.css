@@ -180,9 +180,17 @@ body {
   color: #456A74;
 }
 
+.page-heading-text {
+  color: #456A74;
+  font-weight: bold;
+  text-align: center;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
 .edit-body {
   margin-left: 3em;
-  margin-top: 3em;
+  margin-top: 2em;
   width: 400px;
   /* border: 1px solid black; */
   /* justify-content: space-between; */
@@ -192,6 +200,7 @@ body {
   color: #456A74;
   font-weight: bold;
   padding-left: .3em;
+  margin-top: .4em;
 }
 
 .edit-body form {
@@ -225,8 +234,8 @@ body {
   border-radius: 3px;
 }
 
-.redbg {
-  background: rgba(204, 145, 57, .75);
+.navbg {
+  background: rgb(211, 152, 69);
 }
 
 .header1 {

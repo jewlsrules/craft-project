@@ -4,8 +4,32 @@
 <% include ../partials/htmlhead.ejs %>
   </head>
   <body>
-    <% include ../partials/header2.ejs %>
+    <!-- Nav bar changes based on current page, can't use partial -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top navbg">
+      <a class="navbar-brand" href="/projects/all">Hook & Needle</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/projects">Your Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/projects/all">Browse</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href='/projects/new'>New Project</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/myprofile">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End of nav bar -->
     <div class="edit-body">
+      <a id='back-to-project-link' class='link' href="/projects/<%=project.id%>">< Back to Project</a>
       <h1>Edit Project</h1>
       <form class='edit-item-form' action="/projects/<%=project.id%>?_method=PUT" method="post">
         Name: <input type="text" name="name" value='<%=project.name%>' /><br>
@@ -16,7 +40,6 @@
         Due Date (optional): <input type="text" name="due" value='<%=project.due%>' /><br>
         <input type="submit" value="Submit Changes">
       </form>
-      <a class='link' href="/projects/<%=project.id%>">< Back to Project</a>
       <form action="/projects/<%=project.id%>?_method=DELETE" method="post">
         <input id='delete-project-button' type="submit" value="DELETE PROJECT">
       </form>
