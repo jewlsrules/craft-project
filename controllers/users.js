@@ -81,7 +81,8 @@ router.get('/:id', (req, res) => {
         } else {
           res.render('users/otherprofile.ejs', {
             user:foundUser,
-            projects:foundProjects
+            projects:foundProjects,
+            loggedInUser: req.session.username
           })
         }
       })

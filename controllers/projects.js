@@ -18,7 +18,9 @@ const User = require('../models/user.js')
 // new project page show route
 router.get('/new', (req, res) => {
   if(req.session.username){
-    res.render('projects/new.ejs')
+    res.render('projects/new.ejs', {
+      user: req.session.username
+    })
   } else {
     res.redirect('/projects/all')
   }

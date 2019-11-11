@@ -126,7 +126,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  
+
   border-radius: 5px;
   padding: 1em;
   width: 30%;
@@ -276,7 +276,7 @@ body {
   margin-top: 1em;
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content:center;
 }
 

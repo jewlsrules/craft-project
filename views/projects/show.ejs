@@ -22,7 +22,7 @@
             <a class="nav-link" href='/projects/new'>New Project</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/users/myprofile">Profile</a>
+            <a class="nav-link" href="/users/<%=user%>">Profile</a>
           </li>
         </ul>
       </div>
@@ -33,7 +33,7 @@
       <div class="show-body">
         <div class="show-item-details">
           <div class="item-show-photo col-6">
-            <img class='item-photo-show' src="<%=project.photo%>">
+            <img class='item-photo-show shadow p-3 mb-5 bg-white rounded' src="<%=project.photo%>">
           </div>
           <div class="item-text-details col-5">
             <h1 class='page-heading-text'><%=project.name%></h1><br>
