@@ -37,12 +37,21 @@ router.get('/:id', (req, res) => {
     //find the user and display their information
     User.findOne({username: req.session.username}, (error, foundUser) => {
       // console.log('req.session.username = ' + req.session.username);
-      // console.log('found user is: ' + foundUser);
+      // console.log('found user\'s username is: ' + foundUser);
       Project.find({user:req.session.username}, (error, foundProjects) => {
-        res.render('users/profile.ejs', {
-          user:foundUser,
-          projects:foundProjects
-        })
+        //to see and edit their own profile
+        if(req.session.username === foundUser.username){
+          res.render('users/profile.ejs', {
+            user:foundUser,
+            projects:foundProjects
+          })
+          //to view another user's profile
+        } else {
+          res.render('users/otherprofile.ejs', {
+            user:foundUser,
+            projects:foundProjects
+          })
+        }
       })
     })
   } else {
