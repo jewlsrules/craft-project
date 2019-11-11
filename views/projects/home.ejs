@@ -34,17 +34,17 @@
     <% include ../partials/header1.ejs %>
       <h1 class='page-heading-text'>Your Projects</h1>
       <div class="body">
-        <% for(let i = 0; i < projects.length; i++){ %>
-          <% if(!projects){ %>
-            <div class="no-projects-yet">
-              <h1>No Projects yet! Click on "New Project" to add your first project</h1>
-            </div>
+        <% if(projects.length === 0){ %>
+          <div class="no-projects-yet">
+            <h3>No Projects yet! Click on "New Project" to add your first project</h3>
+          </div>
           <% } else { %>
-          <div class='project-display shadow p-3 mb-5 bg-white rounded'>
-              <a href="/projects/<%=projects[i].id%>">
-                <img src="<%=projects[i].photo%>">
-              </a>
-              <a class='link' href="/projects/<%=projects[i].id%>"><%=projects[i].name%></a>
+            <% for(let i = 0; i < projects.length; i++){ %>
+              <div class='project-display shadow p-3 mb-5 bg-white rounded'>
+                <a href="/projects/<%=projects[i].id%>">
+                  <img src="<%=projects[i].photo%>">
+                </a>
+                <a class='link' href="/projects/<%=projects[i].id%>"><%=projects[i].name%></a>
             </div>
             <% }} %>
           </div>

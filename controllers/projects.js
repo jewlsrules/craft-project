@@ -53,6 +53,11 @@ router.get('/', (req, res) => {
   if(req.session.username){  //check for logged in user:
     // based on the cookie that was set at log in/sign up, find all the projects
     Project.find({user:req.session.username}, (error, usersProjects) => {
+      // if(usersProjects[0]){
+      //   console.log('true');
+      // } else {
+      //   console.log('false');
+      // }
         res.render('projects/home.ejs', { //this page will show all the current user's projects
           projects:usersProjects,
           username:req.session.username
