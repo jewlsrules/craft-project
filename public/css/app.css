@@ -97,6 +97,10 @@ body {
   width: 100%;
 }
 
+.invalidLogin {
+  color: red;
+}
+
 .new-project-button {
   width: 200px;
   align-items: center;

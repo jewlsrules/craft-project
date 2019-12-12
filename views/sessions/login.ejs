@@ -30,6 +30,9 @@
     <!-- End of nav bar -->
       <% include ../partials/header1.ejs %>
       <div class="edit-body">
+        <% if(invalid){ %>
+          <span class='invalidLogin'>Invalid Username/Password. Try Again</span>
+        <% } %>
         <h1>Log In</h1>
         <form action="/sessions" method="POST">
           Username: <input type="text" name="username" /><br>

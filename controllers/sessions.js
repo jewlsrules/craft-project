@@ -10,6 +10,8 @@ const bcrypt = require('bcrypt') //for password encryption
 const Project = require('../models/project.js')
 const User = require('../models/user.js')
 
+invalid = false;
+
 //----------------------
 // Routes
 //----------------------
@@ -36,6 +38,7 @@ router.post('/', (req, res)=>{
         req.session.username = foundUser.username
         res.redirect('/projects')
       } else {
+        flag = true;
         res.redirect('/sessions/login')
       }
     }
