@@ -38,7 +38,7 @@ router.post('/', (req, res)=>{
         req.session.username = foundUser.username
         res.redirect('/projects')
       } else {
-        flag = true;
+        invalid = true;
         res.redirect('/sessions/login')
       }
     }
