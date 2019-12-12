@@ -19,7 +19,9 @@ invalid = false;
 // Show Log In Page
 router.get('/login', (req, res) => {
   if(!req.session.username){
-    res.render('sessions/login.ejs')
+    res.render('sessions/login.ejs', {
+      invalid: invalid
+    })
   } else {
     res.redirect('/projects')
   }
@@ -29,6 +31,7 @@ router.get('/login', (req, res) => {
 router.post('/', (req, res)=>{
   User.findOne({username: req.body.username}, (error, foundUser) => {
     if(foundUser === null){
+      invalid = true;
       res.redirect('/sessions/login')
     } else {
       const doesPasswordMatch = bcrypt.compareSync(req.body.password, foundUser.password)
