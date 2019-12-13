@@ -30,15 +30,17 @@
     <!-- End of nav bar -->
     <div class="edit-body">
       <h1 class='h1'>New Project</h1>
-      <form class='edit-item-form' action="/projects" method="post">
-        Name: <input type="text" name="name" /><br>
-        Image URL: <input type="text" name="photo" /><br>
-        Status: <input type="text" name="status" placeholder="to do, current, done"/><br>
-        Link to Pattern: <input type="text" name="pattern" /><br>
-        Link to Yarn: <input type="text" name="yarn" /><br>
-        Due Date (optional): <input type="text" name="due" /><br>
-        <input type="submit" value="Submit New Item">
-      </form>
+      <div class="new-project-form">
+        <form class='edit-item-form' action="/projects" method="post">
+          Name: <input type="text" name="name" /><br>
+          Image URL: <input type="text" name="photo" /><br>
+          Status: <input type="text" name="status" placeholder="to do, current, done"/><br>
+          Link to Pattern: <input type="text" name="pattern" /><br>
+          Link to Yarn: <input type="text" name="yarn" /><br>
+          Due Date (optional): <input type="text" name="due" /><br>
+          <input type="submit" value="Submit New Item">
+        </form>
+      </div>
       <a class='link' href="/projects">< Back to Home</a>
     </div>
     <% include ../partials/footer.ejs %>

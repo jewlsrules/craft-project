@@ -209,7 +209,9 @@ body {
 
 .edit-body form {
   margin-bottom: 2em;
-  max-width: 300px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
 }
 
 .edit-item-form {
@@ -219,7 +221,7 @@ body {
 }
 
 .edit-body form * {
-  margin-bottom: 1em;
+  /* margin-bottom: 1em; */
 }
 
 .edit-item-form input[type=submit] {
