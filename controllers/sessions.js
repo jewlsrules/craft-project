@@ -39,6 +39,7 @@ router.post('/', (req, res)=>{
         //if the password is correct, set a cookie of their username
         // console.log("this is the log in post route, found user is : "+ foundUser);
         req.session.username = foundUser.username
+        console.log('logged in user: ', req.session)
         res.redirect('/projects')
       } else {
         invalid = true;
@@ -55,6 +56,8 @@ router.post('/destroy', (req, res)=>{ //any route will work
 			//do something if destroying the session fails
       console.log(err);
 		} else {
+      req.session.username=null;
+      console.log('destroyed session:', req.session)
       //do something if destroying the session succeeds
       res.redirect('/projects/all')
 		}

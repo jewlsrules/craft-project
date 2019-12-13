@@ -24,7 +24,9 @@ router.post('/', (req, res) => {
   req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
   User.create(req.body, (error, createdUser) => {
     // set the cookie so that we know the user is logged in
-    req.session.id = createdUser.id
+    req.session.username = createdUser.username
+    console.log('created user.id: ', createdUser.id)
+    console.log('req.session: ', req.session)
     //bring the new user to the main page
     res.redirect('/projects')
   })
