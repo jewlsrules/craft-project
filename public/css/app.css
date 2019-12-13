@@ -301,6 +301,11 @@ footer {
   border-top: 1px solid black;
   text-align: center;
   margin-top: 2em;
+  padding: .5em 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align:center;
 }
 
 footer p {
